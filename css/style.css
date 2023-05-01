@@ -1,0 +1,436 @@
+/* inconsolata-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/inconsolata-v31-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inconsolata-v31-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inconsolata-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inconsolata";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/inconsolata-v31-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inconsolata-v31-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* lora-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/lora-v32-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/lora-v32-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* lora-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Lora";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/lora-v32-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/lora-v32-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inter-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/inter-v12-latin-regular.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-regular.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* inter-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/inter-v12-latin-700.woff2") format("woff2"),
+    /* Chrome 36+, Opera 23+, Firefox 39+ */
+      url("../fonts/inter-v12-latin-700.woff") format("woff"); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root {
+  --bgbody: #ffffff;
+  --primaryclr: #2d2d2d;
+  --secondaryclr: #757575;
+  --inputbg: #f4f4f4;
+  --colorF: #a445ed;
+  --colorTogl: #757575;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  height: 100%;
+}
+body {
+  background: var(--bgbody);
+  font-family: "Inter", sans-serif;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+.container {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+.header {
+  padding: 60px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background: var(--colorTogl);
+  border-radius: 10px;
+  cursor: pointer;
+  /* padding: 0 3px; */
+}
+.toggleY {
+  position: absolute;
+  left: 5px;
+  bottom: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--bgbody);
+  border-radius: 50%;
+  transition: all 0.4s;
+}
+.toggleY-transform {
+  transform: translateX(130%);
+}
+.hidden {
+  display: none;
+}
+.font {
+  color: var(--primaryclr);
+  font-weight: 700;
+  font-size: 0.875rem;
+  font-size: clamp(
+    0.875rem,
+    0.6831534772182255rem + 0.9592326139088728vw,
+    1.125rem
+  );
+  line-height: 24px;
+}
+.fonts {
+  position: relative;
+  cursor: pointer;
+}
+.dropdown {
+  width: 100%;
+  position: absolute;
+  border-radius: 16px;
+  width: 150px;
+  height: 130px;
+  background-color: var(--bgbody);
+  border-radius: 10px;
+  padding: 15px 0;
+  visibility: hidden;
+  text-align: center;
+  box-shadow: 0px 5px 30px var(--colorTogl);
+}
+.fonts:hover .dropdown {
+  visibility: visible;
+}
+.item {
+  padding: 5px;
+  /* background-color: #a445ed; */
+}
+.item:hover {
+  color: var(--colorF);
+}
+
+.input-wrapper {
+  cursor: pointer;
+  background-color: var(--inputbg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 21px;
+  border-radius: 16px;
+  /* margin-bottom: 52px; */
+}
+.input-wrapper:hover {
+  border: 1px solid #a445ed;
+}
+.input-wrapper input {
+  color: var(--primaryclr);
+  border: none;
+  width: inherit;
+  outline: none;
+  background-color: var(--inputbg);
+  width: 750px;
+  font-weight: 700;
+  /* font-size: 20px; */
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8006097560975609rem + 0.975609756097561vw, 1.25rem);
+  line-height: 21px;
+  font-style: normal;
+}
+.main {
+  padding: 52px 0;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 42px;
+}
+#transcription {
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 24px;
+   */
+  font-size: 1.125rem;
+  font-size: clamp(
+    1.125rem,
+    0.8259146341463415rem + 1.4634146341463414vw,
+    1.5rem
+  );
+  line-height: 29px;
+  color: var(--colorF);
+}
+
+.keyboard {
+  color: var(--primaryclr);
+  font-style: normal;
+  font-weight: 700;
+  /* font-size: 64px;
+   */
+  font-size: 2rem;
+  font-size: clamp(2rem, 0.4048780487804877rem + 7.804878048780488vw, 4rem);
+  line-height: 67px;
+  margin-bottom: 11px;
+}
+#Audio {
+  cursor: pointer;
+}
+#Audio:active {
+  opacity: 0.6;
+}
+/* 
+
+
+
+---------------------*/
+
+p {
+  color: var(--primaryclr);
+}
+
+.noun-img {
+  position: relative;
+  margin-bottom: 40px;
+}
+.noun {
+  position: absolute;
+  top: -15px;
+  background-color: var(--bgbody);
+  padding-right: 10px;
+  color: var(--primaryclr);
+  font-style: italic;
+  font-weight: 700;
+  /* font-size: 24px; */
+  font-size: 1.125rem;
+  font-size: clamp(
+    1.125rem,
+    0.8259146341463415rem + 1.4634146341463414vw,
+    1.5rem
+  );
+  line-height: 29px;
+}
+.meaning {
+  color: var(--secondaryclr);
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px;
+   */
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8006097560975609rem + 0.975609756097561vw, 1.25rem);
+  line-height: 24px;
+  margin-bottom: 25px;
+}
+.synonim-w p {
+  margin-right: 22px;
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px; */
+  line-height: 24px;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8006097560975609rem + 0.975609756097561vw, 1.25rem);
+  color: var(--secondaryclr);
+}
+.verb-mein {
+  margin-bottom: 40px;
+}
+.synonim-w {
+  display: flex;
+  margin-top: 64px;
+  margin-bottom: 40px;
+  display: flex;
+}
+.eror {
+  color: #ff5252;
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 20px; */
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8006097560975609rem + 0.975609756097561vw, 1.25rem);
+  line-height: 24px;
+}
+.eror-wrapper {
+  margin-top: 132px;
+}
+
+.eror-img {
+  width: 100%;
+  margin: 0 auto;
+}
+.eror-title {
+  margin-top: 44px;
+  color: var(--primaryclr);
+  font-style: normal;
+  font-weight: 700;
+  /* font-size: 20px; */
+  line-height: 24px;
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.8006097560975609rem + 0.975609756097561vw, 1.25rem);
+  text-align: center;
+  margin-bottom: 24px;
+}
+.eror-text {
+  font-style: normal;
+  font-weight: 400;
+  /* font-size: 18px; */
+  line-height: 24px;
+  /* or 133% */
+  font-size: 0.875rem;
+  font-size: clamp(
+    0.875rem,
+    0.6756097560975609rem + 0.975609756097561vw,
+    1.125rem
+  );
+  color: var(--secondaryclr);
+  text-align: center;
+}
+
+#footer {
+  display: flex;
+  padding: 23px 0;
+  align-items: center;
+}
+#footer span {
+  margin-bottom: 15px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  /* identical to box height */
+  color: var(--secondaryclr);
+  text-decoration-line: underline;
+  margin-right: 25px;
+}
+#footer div {
+  display: flex;
+}
+#footer div a {
+  color: var(--primaryclr);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  /* identical to box height */
+  margin-right: 8px;
+  text-decoration-line: underline;
+}
+@media only screen and (max-width: 680px) {
+  .container {
+    max-width: 680px;
+    padding: 0 25px;
+    margin: 0 auto;
+  }
+  .header {
+    padding: 40px 0;
+  }
+  .input-wrapper {
+    padding: 15px;
+  }
+}
+@media only screen and (max-width: 580px) {
+  .container {
+    max-width: 580px;
+    padding: 0 25px;
+    margin: 0 auto;
+  }
+  .header {
+    padding: 20px 0;
+  }
+  .input-wrapper {
+    padding: 15px;
+  }
+  #footer {
+    display: block;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .container {
+    max-width: 350px;
+    padding: 0 20px;
+    margin: 0 auto;
+  }
+  .synonim-w {
+    /* width: 327px; */
+    flex-wrap: wrap;
+    margin-top: 24px;
+    margin-bottom: 31px;
+  }
+  .header {
+    padding: 20px 0;
+  }
+  .header-content {
+    gap: 18px;
+  }
+  .input-wrapper {
+    padding: 12px;
+  }
+}
+
+.darkMode {
+  --bgbody: #050505;
+  --primaryclr: #ffffff;
+  --inputbg: #1f1f1f;
+  --colorTogl: #a445ed;
+
+  /* --shadowClr: #a445ed; */
+}
